@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @pet.name %>
+</p>
+
+<p>
+  <b>Health:</b>
+  <%= @pet.health %>
+</p>
+
+<%= link_to 'Back', owner_path(@pet.owner) %>

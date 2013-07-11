@@ -1,0 +1,25 @@
+<h1>Listing pets</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Health</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pets.each do |pet| %>
+  <tr>
+    <td><%= pet.name %></td>
+    <td><%= pet.health %></td>
+    <td><%= link_to 'New', new_pet_path %></td>
+    <td><%= link_to 'Show', pet %></td>
+    <td><%= link_to 'Feed', feed_pets_path(:id => pet.id, :energy => 5), :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pet', new_pet_path %>

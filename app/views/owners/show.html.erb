@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Email:</b>
+  <%= @owner.email %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @owner.name %>
+</p>
+
+<p>
+  <b>Age:</b>
+  <%= @owner.age %>
+</p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Health</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @pets.each do |pet| %>
+      <tr>
+        <td><%= pet.name %></td>
+        <td><%= pet.health %></td>
+        <td><%= link_to 'Show', pet %></td>
+        <td><%= link_to 'Feed', pet_feed_path(:pet_id => pet.id, :energy => 5), :method => :post %></td>
+        <td><%= link_to 'Feed', pet_feed_path(:pet_id => pet.id, :energy => 10), :method => :post %></td>
+      </tr>
+  <% end %>
+</table>
+
+
+<%= link_to 'Edit', edit_owner_path(@owner) %> |
+<%= link_to 'Back', owners_path %>
+
+<%= link_to 'New Pet', new_pet_path(:owner_id => @owner.id) %>
+<%= link_to 'Logout', destroy_owner_session_path %>
