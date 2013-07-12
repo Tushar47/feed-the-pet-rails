@@ -15,7 +15,8 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'carrierwave'
+# Image upload gem
+  gem 'carrierwave'
 
 # Gems used only for assets and not required
 # in production environments by default.
