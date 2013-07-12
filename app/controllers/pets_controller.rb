@@ -23,7 +23,7 @@ class PetsController < InheritedResources::Base
     @pet.health = 50
 
       if @pet.save
-         redirect_to @pet, notice: 'Pet was successfully created.'
+         redirect_to @owner, notice: 'Pet was successfully created.'
       else
         render action: "new"
       end
@@ -41,7 +41,7 @@ class PetsController < InheritedResources::Base
   def destroy
     @pet = Pet.find(params[:id])
     @pet.destroy
-    redirect_to pets_url
+    redirect_to owner_path(current_owner)
   end
 
   def feed
