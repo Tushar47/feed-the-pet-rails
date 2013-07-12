@@ -1,5 +1,7 @@
 class Pet < ActiveRecord::Base
-  attr_accessible :health, :name
+  mount_uploader :picture, PictureUploader
+
+  attr_accessible :health, :name, :picture
   belongs_to :owner
 
   validates_presence_of :name

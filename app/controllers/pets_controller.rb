@@ -19,7 +19,7 @@ class PetsController < InheritedResources::Base
 
   def create
     @owner = Owner.find(params[:owner_id])
-    @pet = @owner.pets.build(:name => params[:pet][:name])
+    @pet = @owner.pets.build(:name => params[:pet][:name], :picture => params[:pet][:picture])
     @pet.health = 50
 
       if @pet.save
