@@ -7,7 +7,7 @@ FeedThePet::Application.routes.draw do
     post "feed/:energy" => "pets#feed" , :as => :feed
   end
 
-  root to: "owners#index"
+  root to: "owners#show"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
