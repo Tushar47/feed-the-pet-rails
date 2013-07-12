@@ -1,12 +1,13 @@
 FeedThePet::Application.routes.draw do
   devise_for :owners
-  root to: "owners#index"
+
   resources :owners
   get ":owner_id/pets/new" => "pets#new", :as => :new_pet
   resources :pets do
     post "feed/:energy" => "pets#feed" , :as => :feed
   end
 
+  root to: "owners#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
