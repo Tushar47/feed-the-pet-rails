@@ -1,14 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>FeedThePet</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <meta charset="utf-8" />
+  <title>Feed The Pet</title>
+  <meta name="description" content="Feed Me" />
+  <meta name="author" content="Tushar Sonawane">
+  <meta name="viewport" content="width=device-width">
+
+
+  <%= stylesheet_link_tag    "style", :media => "all" %>
+  <style type="text/css">
+      #logo-big {
+          display: block;
+          background: url(<%= asset_path 'logo-big.png' %>) no-repeat;
+          width: 500px;
+          height: 100px;
+          text-indent: -9999px;
+      }
+
+      #logo-small {
+          display: block;
+          background: url(<%= asset_path 'logo-big.png' %>) no-repeat;
+          width: 250px;
+          height: 50px;
+          text-indent: -9999px;
+      }
+  </style>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="grid grid-pad">
+  <header class="logo">
+    <a href="#" id="logo-big">Feed Me!!</a>
+  </header>
 
 <%= yield %>
+</div>
 
 </body>
 </html>

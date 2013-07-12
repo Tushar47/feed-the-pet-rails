@@ -3,7 +3,7 @@
         <%= @owner.email %>
     </b>
     <%= link_to '(Logout)', destroy_owner_session_path %>
-    <%= link_to 'New Pet', new_pet_path(:owner_id => @owner.id) %>
+    <%= link_to 'New Pet', new_pet_path(:owner_id => @owner.id), :class => 'bttn' %>
 
 </p>
 
@@ -11,27 +11,66 @@
 <% if pets.empty? %>
     <em>you dont own any pet yet?</em>
 <% else %>
-    <table>
-      <tr>
-        <th>Pets</th>
-        <th>Health</th>
-        <th></th>
-        <th></th>
-      </tr>
-      <% pets.each do |pet| %>
-          <tr>
-            <td><%= pet.name %></td>
-            <td><%= pet.health %></td>
-            <!--<td><%= link_to 'Show', pet %></td>-->
-            <td><%= link_to 'Food1', pet_feed_path(:pet_id => pet.id, :energy => 5), :method => :post %></td>
-            <td><%= link_to 'Food2', pet_feed_path(:pet_id => pet.id, :energy => 10), :method => :post %></td>
-            <td><%= link_to 'Set Free', pet, :method => :delete %></td>
-          </tr>
-      <% end %>
-  <% end %>
-</table>
+<% pets.each do |pet| %>
+<div class="grid grid-pad">
+<div class="col-1-2">
+  <div class="content">
+    <section id="petty">
+      <figure>
+        <%= image_tag('pet.jpg', :id => 'photo') %>
+      </figure>
+    </section>
+    <section id="health-meter">
+      <progress value="<%= pet.health %>" max="100"></progress>
+      <span>Health ( <%= pet.health %>% )</span>
+    </section>
+  </div>
+</div>
+<div class="col-1-2">
+  <div class="content">
+    <section id="info">
+      <h2 class="pet-name"><%= pet.name %></h2>
+    </section>
+    <nav>
+      <ul>
+        <li id="food1">
+          <%= link_to 'Food1', pet_feed_path(:pet_id => pet.id, :energy => 5), :method => :post %>
+        </li>
 
+        <li id="food2">
+          <%= link_to 'Food2', pet_feed_path(:pet_id => pet.id, :energy => 10), :method => :post %>
+        </li>
+
+        <li id="set-free">
+          <%= link_to 'Set Free', pet, :method => :delete %>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+</div>
+<% end %>
+<% end %>
 <!--
 <%= link_to 'Edit', edit_owner_path(@owner) %> |
 <%= link_to 'Back', owners_path %>
 -->
+
+<script type="text/javascript">
+    $(function() {
+        var health = $('#health-meter').find('progress').val();
+        $('#food1').find('a').click(function() {
+            if(health + 5 >= 100) {
+                alert("I'm not hungry anymore! Set me free!!!");
+                return false;
+            }
+        });
+
+        $('#food2').find('a').click(function() {
+            if(health + 10 >= 100) {
+                alert("I'm not hungry anymore! Set me free!!!");
+                return false;
+            }
+        });
+    })();
+</script>

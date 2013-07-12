@@ -1,0 +1,270 @@
+/* Grid Styles */
+
+*, *:after, *:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0px;
+	background-color: #9ACD32;
+}
+
+[class*='col-'] {
+	float: left;
+	padding-right: 20px;
+}
+
+[class*='col-']:last-of-type {
+	padding-right: 0px;
+}
+
+.grid {
+	width: 80%;
+	max-width: 960px;
+	min-width: 755px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.grid:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.grid-pad {
+	padding: 20px 0 40px 20px;
+}
+
+
+.push-right {
+	float: right;
+}
+
+/* Content Columns */
+
+.col-1-1 			{ width: 100%; 		}
+.col-2-3, .col-8-12 { width: 66.66%; 	}
+.col-1-2, .col-6-12 { width: 50%; 		}
+.col-1-3, .col-4-12 { width: 33.33%; 	}
+.col-1-4, .col-3-12 { width: 25%; 		}
+.col-1-5 			{ width: 20%; 		}
+.col-1-6, .col-2-12 { width: 16.667%; 	}
+.col-1-7 			{ width: 14.28%; 	}
+.col-1-8 			{ width: 12.5%; 	}
+.col-1-9 			{ width: 11.1%; 	}
+.col-1-10 			{ width: 10%; 		}
+.col-1-11 			{ width: 9.09%; 	}
+.col-1-12 			{ width: 8.33%; 	}
+
+/* Layout Columns */
+
+.col-11-12 	{ width: 91.66%; 	}
+.col-10-12 	{ width: 83.333%; 	}
+.col-9-12 	{ width: 75%; 		}
+.col-5-12 	{ width: 41.66%; 	}
+.col-7-12 	{ width: 58.33% 	}
+
+
+/*
+ * Chrome Frame Prompt
+ */
+
+.chromeframe {
+    margin: 0 0;
+    background: #ccc;
+    color: #000;
+    padding: 0 0;
+}
+
+
+/* 
+ * Main Styles 
+ */
+::-moz-selection { background: yellow; color: #000; text-shadow: none; }
+::selection { background: yellow; color: #000; text-shadow: none; }
+
+body { font-size: 62.5%; font-family: Georgia, serif; }
+
+h1 { font-size: 3.2em; }
+h2 { font-size: 2em; }
+p, em { font-size: 1.8em; }
+
+/*
+ * Improve readability when focused and hovered in all browsers: h5bp.com/h
+ */
+
+a {
+    text-decoration: none;
+}
+a:hover,
+a:active {
+    outline: 0;
+    text-decoration: underline;
+}
+
+nav {
+
+}
+nav ul {
+	list-style: none;
+	padding: 0;
+}
+
+nav ul li { 
+	display: block; 
+	margin: 15px;
+}
+
+nav ul li a {
+	font-size: 1.8em;
+	display: block;
+	background-color: #d04132;
+	width: 128px;
+	height: 64px;
+	position: relative;
+	text-decoration: none;	
+	color: #fff;
+	border-radius: 50%;
+	padding: 20px;
+    text-align: center;
+}
+nav ul li a:hover {
+    border: 2px solid #FEE;
+    text-decoration: none;
+}
+
+
+
+#health {
+	padding: 1em 2em;
+}
+
+span.emoticons {
+	display: inline-block;
+	padding: 0 .5em;
+	
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+
+#info {
+	padding: 0 1.6em;
+	margin-bottom: 2em;
+}
+
+#health-meter span {
+    top: -23px;
+    left: 5%;
+    position: relative;
+    font-size: 1.5em;
+    font-weight: bolder;
+    color: white;
+}
+
+progress {
+    background-color: #d04132;
+    border: 0;
+    height: 2.5em;
+    width: 100%;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #f0f0f0;
+}
+
+progress::-webkit-progress-value {
+    background-color: #d04132;
+}
+
+progress::-moz-progress-bar {
+    background-color: #d04132;
+}
+
+/* Form Styles */
+
+form {
+    margin: 20px;
+    padding: 20px;
+}
+
+form label {
+	font-size: 2em;
+}
+input {
+	display: block;
+	margin: 10px;
+	padding: 10px;
+	background-color: white;
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	height: 40px;
+	font-size: 16px;
+	line-height: 18px;
+	color: #555;
+}
+
+input[type=submit], .bttn {
+	color: white;
+	background-color: #05C;
+	border: 0;
+	border-radius: 4px;
+}
+
+input[type=submit]:hover, .bttn:hover{
+	background-color: #02F;
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+}
+
+.shared-link {
+    font-size: 2em;
+}
+.bttn, .shared-link a {
+    padding: 10px;
+    text-decoration: none;
+}
+
+.pet-name {
+    padding-left: 20px;
+    font-weight: 700;
+}
+
+/* Media Queries */
+
+@media handheld, only screen and (max-width: 767px) {
+
+	h1 { text-align: center; }
+	#sidebar { margin-top: 2%; }
+	.grid {
+		width: 100%;
+		min-width: 0;
+		margin-left: 0px;
+		margin-right: 0px;
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	
+	[class*='col-'] {
+		width: auto;
+		float: none;
+		margin-left: 0px;
+		margin-right: 0px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	nav ul li:hover a span { display: none; }
+    
+}
+
+@media handheld, only screen and (max-width: 480px) {
+	h1 { font-size: 2.5em; text-align: left; }
+	nav ul li:hover a span { display: none; }
+
+}
